@@ -1,0 +1,24 @@
+{
+  "name": "node_crash_course",
+  "version": "1.0.0",
+  "description": "The Traversy Media Node Crash Course from YouTube",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Traversy",
+    "Media",
+    "Node.js",
+    "Node",
+    "JavaScript"
+  ],
+  "author": "AJ",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
