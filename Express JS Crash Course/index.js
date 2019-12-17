@@ -3,10 +3,8 @@ const path = require("path");
 
 const app = express();
 
-// Create a route
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-})
+// Set Static Folder
+app.use(express.static(path.join(__dirname, "public")));
 
 const PORT = process.env.PORT || 5000;
 
