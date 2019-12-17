@@ -34,14 +34,33 @@ router.post("/", (req, res) => {
     };
 
     if (!newMember.name || !newMember.email) {
-        res.status(400).json({ msg: "Please include a name and email" });
+        return res.status(400).json({ msg: "Please include a name and email" });
     }
 
     members.push(newMember);
 
     res.json(members);
 
-    // Because we are useing res twice here, we will get an error message that says the headers have already been sent.
 });
+
+// Update Member
+router.put("/:id", (req, res) => {
+
+    const found = members.some(member => member.id === parseInt(req.params.id));
+
+    if (found) {
+        const updatedMember = req.body;
+        members.forEach(member => {
+           if (member.id === parseInt(req.params.id)) {
+               member.name = updatedMember.name ? updatedMember.name : member.name;
+               member.email = updatedMember.email ? updatedMember.email : member.email;
+
+               res.json({ msg: "Member updated", member });
+           } 
+        });
+    } else {
+        res.status(400).json({ msg: `No member with the id of ${req.params.id}` });
+    }
+})
 
 module.exports = router;
