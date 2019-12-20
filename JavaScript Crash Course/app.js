@@ -3,20 +3,22 @@
  *  59:34
  */
 
- // Non ES6 Way
- // Constructor function
- function Person(firstName, lastName, dob) {
-     this.firstName = firstName;
-     this.lastName = lastName;
-     this.dob = new Date(dob);
- }
+ // Create a class (ES6 style also known as Syntatic Sugar) -- The same exact thing is happening above
+ class Person {
+     constructor(firstName, lastName, dob) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = new Date(dob);
+     }
 
- // Utilizing prototype
- Person.prototype.getBirthYear = function() {
-    return this.dob.getFullYear();
- }
- Person.prototype.getFullName = function() {
-    return `${this.firstName} ${this.lastName}`;
+     // This is the same as using the prototype method above
+     getBirthYear() {
+        return this.dob.getFullYear();
+     }
+
+     getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+     }
  }
 
  // Instatiate object
